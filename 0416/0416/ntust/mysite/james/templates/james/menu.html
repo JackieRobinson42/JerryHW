@@ -1,0 +1,30 @@
+<h1>個人資訊的網頁</h1>
+{% for r in names %}
+<h2>{{r.person}}</h2>
+
+<p>生日:</p>
+	<tr>
+		<th>年份</th>
+		<th>月份</th>
+		<th>日期</th>
+	</tr>
+
+<table class="table">
+	
+	{% for birthday in r.birthday_set.all %}
+	<tr>
+		<td>{{birthday.year}}</td>
+		<td>{{birthday.month}}</td>
+		<td>{{birthday.day}}</td>
+	</tr>
+	{% endfor %}
+
+</table>
+
+<table>
+	{% for gender in r.gender_set.all %}
+	<p>性別:{{gender.Female_Male}}</p>
+	{% endfor %}
+</table>
+
+{% endfor %}
